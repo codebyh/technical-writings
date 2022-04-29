@@ -1,0 +1,22 @@
+
+Service Models
+- IaaS: Infrastructure as a Service
+- PaaS: Platform as a Service
+- SaaS: Software as a Service
+- BaaS: Backend as a Service
+
+Deployment Models 
+- Private Cloud
+- Public Cloud
+- Hybrid Cloud
+
+File systems
+- Network File system
+- Network Attached Storage
+- Storage Area Network 
+- Content Addressed Storage
+- Cloud Storage
+
+Abstraction Types
+- Hypervisors
+- Containers
