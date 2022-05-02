@@ -28,3 +28,6 @@ Caching core concepts:
 
 Memory Cache - System.Runtime.Caching.MemoryCache
 Redis Cache - StackExchange.Redis
+
+Caching strategies:
+https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/
