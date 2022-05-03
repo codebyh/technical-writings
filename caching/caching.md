@@ -27,7 +27,6 @@ Caching core concepts:
     * Distributed Cache: Where there is a central cache repository with multiple remote caches to service request from the remote clients. 
 
 Memory Cache - System.Runtime.Caching.MemoryCache
-Redis Cache - StackExchange.Redis
 
 Caching
 - Data is stored in in-memory, not file system making it much faster. Use simple data structure like key-value pairs. (no joining quires or maintaining indices)
@@ -45,12 +44,23 @@ Caching Considerations
 Azure Cache for Redis
  - Provides in-memory data for optimal speed
  - Fully managed by Azure based on the open-source Redis cache
- - Stores date in strings, hashes, lists and sets
+ - Stores data in
+    - strings: Max 512MB. Can Append, incr/decr
+    - lists: ordered by sequence
+    - sets: unique values
+    - hashes: unordered. Can contain any many fields as memory allows for
+    - others: bitmaps, hyperlogs 
  - Other features: 
     - Geo-replication (high availability): one primary and secondary nodes.
     - Cluster (more performance): has 1 or more redis instances and shards the data in the cache. Can increase total memory and network bandwidth, but the number of client connections remain same. 
-    - Data persistence (take backup and configured schedules)
-
+    - Data persistence (takes backup at configured schedules)
+Libraries
+Microsoft.Extensions.Caching.Redis for ASP.NET Core
+StackExchange.Redis for general purpose
+- Use case: session store
+    - Storing state in local memory will work when you scale and when you add servers.
+    - Use distributed cache, which is external to your application and preformant. 
+    - Library: Microsoft.web.RedisSessionStateProvider
 
 Caching strategies:
 https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/
