@@ -13,3 +13,6 @@ Load balancing
 - Least Connections
 - Weighted
 - IP Hash 
+
+Configure Sticky Sessions for Your Classic Load Balancer:
+https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html

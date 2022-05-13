@@ -10,3 +10,7 @@
 - Split tiers into individual services.  
 - Have logging, metrics and automation in place.
 - Data scaling - Use sharding
+
+Back of the Envelope Estimation
+ - Use a combination of thought experiments and common performance numbers to get a good feel for which design meets your requirements.
+ - concepts should be well understood: power of two [2], latency numbers every programmer should know, and availability numbers and time of general operations.
