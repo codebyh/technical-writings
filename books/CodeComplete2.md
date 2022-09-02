@@ -157,5 +157,52 @@ Most of the important programming principles depend not on specific languages bu
 
 Create the checklist of major construction practices covering: coding, teamwork, quality assurance and tools.
 
-## 5 Design in Contruction
+## 5 Design in Construction
+
+A large part of good class or routine design is determined by the system architecture.
+
+### 5.1 Design Challenges
+The phrase “software design” means the conception, invention, or contrivance of a scheme for turning a specification for a computer program into an operational program. Design is the activity that links requirements to coding and debugging. A good top-level design provides a structure that can safely contain multiple lower level designs. Good design is useful on small projects and indispensable on large projects.
+
+Design is also marked by numerous challenges, which are outlined in this section.
+* **Design is a Wicked Problem**: Professional programs are "wicked" problems i.e problems that could be clearly defined only by solving it, or by solving part of it. You have to “solve” the problem once in order to clearly define it and then solve it again to create a solution that works.
+* **Design is a Sloppy Process**: The finished software design should look well organized and clean, but the process used to develop the design isn’t nearly as tidy as the end result. Design is sloppy because a good solution is often only subtly different from a poor one, and it's hard to know when your design is good enough and it is open-ended. 
+* **Design is About Trade-Offs and Priorities**: In the real world, a key part of the designer’s job is to weigh competing design characteristics and strike a balance among those characteristics.
+* **Design Involves Restrictions**: The point of design is partly to create possibilities and partly to restrict possibilities. The constraints of limited resources force simplifications of the solution that ultimately improve the solution.
+* **Design is Non-Deterministic**: If you send three people away to design the same program, they can easily return with three vastly different designs, each of which could be perfectly acceptable. There are usually dozens of ways to design a computer program.
+* **Design is a Heuristic Process**: Because design is non-deterministic, design techniques tend to be "heuristics"— "rules of thumb" or "things to try that sometimes work", rather than repeatable processes that are guaranteed to produce predictable results. Design involves trial and error.
+* **Design is Emergent**: Designs don’t spring fully formed directly from someone’s brain. They evolve and improve through design reviews, informal discussions, experience writing the code itself, and experience revising the code itself. The degree to which change is beneficial or acceptable depends on the nature of the software being built.
+
+### 5.2 Key Design Concepts
+
+#### Software Primary Technical Imperative: Managing Complexity
+
+Software development is made difficult because of two different classes of problems—the *essential* and the *accidental*. Accidental properties as coincidental, discretionary, optional, and happenstance.
+Projects fail most often because of poor requirements, poor planning, or poor management. But when projects do fail for reasons that are primarily technical, the reason is often uncontrolled complexity. When a project reaches the point at which no one really understands the impact that code changes in one area will have on other areas, progress grinds to a halt.
+
+No one’s skull is really big enough to contain a modern computer program, which means that we as software developers shouldn’t try to cram whole programs into our skulls at once; we should try to organize our programs in such a way that we can safely focus on one part of it at a time. The goal is to minimize the amount of a program you have to think about at any one time, reducing a design or coding error.
+
+At the software-architecture level, the complexity of a problem is reduced by dividing the system into subsystems. Humans have an easier time comprehending several simple pieces of information than one complicated piece. The goal of all software-design techniques is to break a complicated problem into simple pieces.
+
+* The more independent the subsystems are, the more you make it safe to focus on one bit of complexity at a time. 
+* Keeping routines short helps reduce your mental workload.
+
+A two-prong approach to managing complexity:
+* Minimize the amount of essential complexity that anyone’s brain has to deal with at any one time.
+* Keep accidental complexity from needlessly proliferating.
+
+List of internal high-quality design characteristics:
+* Minimal complexity: Make simple and easy to understand designs. 
+* Ease of maintenance
+* Minimal connectedness: Design so that connections among different parts of a program are minimal. It minimizes work during integration, testing, and maintenance. 
+* Extensibility: You can enhance a system without causing violence to the underlying structure. 
+* Reusability: Design the system so that you can reuse pieces of it in other systems. 
+* High fan-in: Having a high number of classes that use a given class. Implies that a system has been designed to make good use of utility classes at the lower levels in the system. 
+* Low-to-medium fan-out: Having a low-to-medium number of other classes. High fan-out (>7) indicates that a class uses a large number of other classes and may therefore be overly complex. 
+* Portability: Easily move system to another environment. 
+* Leanness: The system has no extra parts. System is finished not when nothing more can be added but when nothing more can be taken away. Future versions of the software must remain backward-compatible with the extra code.
+* Stratification: Stratified design means trying to keep the levels of decomposition stratified so that you can view the system at any single level and get a consistent view. Example: When using lot of older and poorly designed code, write a new layer of the new system responsible for interfering with old code. The beneficial effects  are 1. It compartmentalizes the messiness of the bad code 2. any modification to old code can be made at interface layer.
+* Standard techniques: Give whole system a familiar feeling by using standardized, common approaches. 
+
+**Levels of Design**
 
