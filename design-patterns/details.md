@@ -54,6 +54,21 @@ Implement a adapter layer between different subsystems that don't share the same
 - The anti-corruption layer can be permanent or retired after migration.
 - Note: Adding new component (service) creates latency overhead, scaling decisions, new service management & maintenance, integration into monitoring, release, configuration processes.
 
+## Backends for Frontends	
+Create separate backend services to be consumed by specific front applications or interfaces.
+
+### Why? (Problem)
+- Development cycle starts with single backend service for the frontend service. But as the user base grows this might lead to following scenarios
+    - If this backend becomes a shared or general purpose serving multiple clients with different needs and specifications. Example mobile vs web need different performance, screen size and display limitations.
+    - Modifying a single interface needs validation from different teams, clients increasing effort on a single deployable resource.
+    - Multiple teams owning different interfaces on same backend.service create development bottlenecks and becomes harder to manage.
+    - An alternative language is better suited for the backend of a different user interface.
+
+### How? (Solution)
+- Create a backend per user interface (as each front end interface has different requirements). Fine-tune the behavior and performance of each backend.
+- Backends aligning with different frontend interfaces give respective teams autonomy, choice of language and faster development process.
+- Note: Can cause code duplication and a new setup of backend services. 
+
 ## CQRS	
 ## Compute Resource Consolidation	
 ## External Configuration Store	
@@ -65,4 +80,6 @@ Implement a adapter layer between different subsystems that don't share the same
 ## Sidecar
 ## Static Content Hosting
 ## Strangler Fig
-## Backends for Frontends	
+
+### Why? (Problem)
+### How? (Solution)
