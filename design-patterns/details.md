@@ -23,7 +23,7 @@ Deploy components of a application into a separate process or container (sidecar
 - Create a sidecar service and place it in its own process or container. This provides homogeneous interface for platform services across languages.
 - A sidecar service is _connected to primary application_ vs being part of it.
 - For each instance of service, an instance of sidecar is deployed and hosted along side it.
-- Interprocess communication between parent application and sidecar service create latency in calls. Provides isolation and scales along with primary application.
+- Interprocess communication between parent application and sidecar services create latency in calls. Provides isolation and scales along with primary application.
 
 ## **Ambassador**
 Create a (ambassador) service that is co-located with the client(s). 
@@ -39,16 +39,30 @@ Create a (ambassador) service that is co-located with the client(s).
     - as a daemon or windows service if it is shared by multiple separate process on a common host
     - as a separate container on same host if client service is containerized
 
-### Anti-Corruption Layer	
-### Backends for Frontends	
-### CQRS	
-### Compute Resource Consolidation	
-### External Configuration Store	
-### Gateway Aggregation	
-### Gateway Offloading	
-### Gateway Routing	
-### Leader Election	
-### Pipes and Filters
-### Sidecar
-### Static Content Hosting
-### Strangler Fig
+## Anti-Corruption Layer
+Implement a adapter layer between different subsystems that don't share the same semantics.
+
+### Why? (Problem)
+- Two subsystem need to communicate in case of following reasons
+    1. Migration between two systems that don't share common semantics
+    2. communication between two systems for any reason that don't share common semantics.
+- Especially when dealing with migration from legacy to modern systems, the former has quality issues (convoluted data schemes or obsolete APIs), incompatible features and technology stack. Avoid "corrupt"ing modern system to support outdated infrastructure, protocols, data models, APIs, or other features you wouldn't otherwise put in modern system. 
+
+### How? (Solution)
+- Introduce anti-corruption layer between two subsytems. This layer contains all the logic to translates communication between two subsystems, since they don't common semantics neither need to be modified.
+- This layer can be implemented as a component within an application or as an independent service.
+- The anti-corruption layer can be permanent or retired after migration.
+- Note: Adding new component (service) creates latency overhead, scaling decisions, new service management & maintenance, integration into monitoring, release, configuration processes.
+
+## CQRS	
+## Compute Resource Consolidation	
+## External Configuration Store	
+## Gateway Aggregation	
+## Gateway Offloading	
+## Gateway Routing	
+## Leader Election	
+## Pipes and Filters
+## Sidecar
+## Static Content Hosting
+## Strangler Fig
+## Backends for Frontends	
